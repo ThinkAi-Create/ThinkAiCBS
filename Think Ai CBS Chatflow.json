@@ -1,0 +1,703 @@
+{
+  "nodes": [
+    {
+      "id": "conversationalAgent_0",
+      "position": {
+        "x": 100,
+        "y": 300
+      },
+      "type": "customNode",
+      "data": {
+        "id": "conversationalAgent_0",
+        "label": "Conversational Agent",
+        "version": 3,
+        "name": "conversationalAgent",
+        "type": "AgentExecutor",
+        "baseClasses": [
+          "AgentExecutor",
+          "BaseChain",
+          "Runnable"
+        ],
+        "category": "Agents",
+        "description": "Conversational agent for a chat model. It will utilize chat specific prompts",
+        "inputParams": [
+          {
+            "label": "System Message",
+            "name": "systemMessage",
+            "type": "string",
+            "rows": 4,
+            "default": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.",
+            "optional": true,
+            "additionalParams": true,
+            "id": "conversationalAgent_0-input-systemMessage-string",
+            "display": true
+          },
+          {
+            "label": "Max Iterations",
+            "name": "maxIterations",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "conversationalAgent_0-input-maxIterations-number",
+            "display": true
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Allowed Tools",
+            "name": "tools",
+            "type": "Tool",
+            "list": true,
+            "id": "conversationalAgent_0-input-tools-Tool",
+            "display": true
+          },
+          {
+            "label": "Chat Model",
+            "name": "model",
+            "type": "BaseChatModel",
+            "id": "conversationalAgent_0-input-model-BaseChatModel",
+            "display": true
+          },
+          {
+            "label": "Memory",
+            "name": "memory",
+            "type": "BaseChatMemory",
+            "id": "conversationalAgent_0-input-memory-BaseChatMemory",
+            "display": true
+          },
+          {
+            "label": "Input Moderation",
+            "description": "Detect text that could generate harmful output and prevent it from being sent to the language model",
+            "name": "inputModeration",
+            "type": "Moderation",
+            "optional": true,
+            "list": true,
+            "id": "conversationalAgent_0-input-inputModeration-Moderation",
+            "display": true
+          }
+        ],
+        "inputs": {
+          "tools": "",
+          "model": "",
+          "memory": "",
+          "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.",
+          "inputModeration": "",
+          "maxIterations": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "conversationalAgent_0-output-conversationalAgent-AgentExecutor|BaseChain|Runnable",
+            "name": "conversationalAgent",
+            "label": "AgentExecutor",
+            "description": "Conversational agent for a chat model. It will utilize chat specific prompts",
+            "type": "AgentExecutor | BaseChain | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 441,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 100,
+        "y": 300
+      }
+    },
+    {
+      "id": "googleGenerativeAIContextCache_1",
+      "position": {
+        "x": 400,
+        "y": 300
+      },
+      "type": "customNode",
+      "data": {
+        "id": "googleGenerativeAIContextCache_1",
+        "label": "Google GenAI Context Cache (1)",
+        "version": 1,
+        "name": "googleGenerativeAIContextCache",
+        "type": "GoogleAICacheManager",
+        "baseClasses": [
+          "GoogleAICacheManager",
+          "GoogleAICacheManager"
+        ],
+        "category": "Cache",
+        "description": "Large context cache for Google Gemini large language models",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "googleGenerativeAI"
+            ],
+            "optional": false,
+            "description": "Google Generative AI credential.",
+            "id": "googleGenerativeAIContextCache_1-input-credential-credential",
+            "display": true
+          },
+          {
+            "label": "TTL",
+            "name": "ttl",
+            "type": "number",
+            "default": 2592000,
+            "id": "googleGenerativeAIContextCache_1-input-ttl-number",
+            "display": true
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "ttl": 2592000
+        },
+        "outputAnchors": [
+          {
+            "id": "googleGenerativeAIContextCache_1-output-googleGenerativeAIContextCache-GoogleAICacheManager|GoogleAICacheManager",
+            "name": "googleGenerativeAIContextCache",
+            "label": "GoogleAICacheManager",
+            "description": "Large context cache for Google Gemini large language models",
+            "type": "GoogleAICacheManager | GoogleAICacheManager"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 381,
+      "positionAbsolute": {
+        "x": 400,
+        "y": 300
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "openApiChain_0",
+      "position": {
+        "x": 1300,
+        "y": 300
+      },
+      "type": "customNode",
+      "data": {
+        "id": "openApiChain_0",
+        "label": "OpenAPI Chain",
+        "version": 2,
+        "name": "openApiChain",
+        "type": "OpenAPIChain",
+        "baseClasses": [
+          "OpenAPIChain",
+          "BaseChain",
+          "Runnable"
+        ],
+        "category": "Chains",
+        "description": "Chain that automatically select and call APIs based only on an OpenAPI spec",
+        "inputParams": [
+          {
+            "label": "YAML Link",
+            "name": "yamlLink",
+            "type": "string",
+            "placeholder": "https://api.speak.com/openapi.yaml",
+            "description": "If YAML link is provided, uploaded YAML File will be ignored and YAML link will be used instead",
+            "id": "openApiChain_0-input-yamlLink-string",
+            "display": true
+          },
+          {
+            "label": "YAML File",
+            "name": "yamlFile",
+            "type": "file",
+            "fileType": ".yaml",
+            "description": "If YAML link is provided, uploaded YAML File will be ignored and YAML link will be used instead",
+            "id": "openApiChain_0-input-yamlFile-file",
+            "display": true
+          },
+          {
+            "label": "Headers",
+            "name": "headers",
+            "type": "json",
+            "additionalParams": true,
+            "optional": true,
+            "id": "openApiChain_0-input-headers-json",
+            "display": true
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Chat Model",
+            "name": "model",
+            "type": "BaseChatModel",
+            "id": "openApiChain_0-input-model-BaseChatModel",
+            "display": true
+          },
+          {
+            "label": "Input Moderation",
+            "description": "Detect text that could generate harmful output and prevent it from being sent to the language model",
+            "name": "inputModeration",
+            "type": "Moderation",
+            "optional": true,
+            "list": true,
+            "id": "openApiChain_0-input-inputModeration-Moderation",
+            "display": true
+          }
+        ],
+        "inputs": {
+          "model": "",
+          "yamlLink": "",
+          "headers": "",
+          "inputModeration": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "openApiChain_0-output-openApiChain-OpenAPIChain|BaseChain|Runnable",
+            "name": "openApiChain",
+            "label": "OpenAPIChain",
+            "description": "Chain that automatically select and call APIs based only on an OpenAPI spec",
+            "type": "OpenAPIChain | BaseChain | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 569,
+      "positionAbsolute": {
+        "x": 1300,
+        "y": 300
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "AWSBedrockEmbeddings_0",
+      "position": {
+        "x": 1000,
+        "y": 275
+      },
+      "type": "customNode",
+      "data": {
+        "id": "AWSBedrockEmbeddings_0",
+        "label": "AWS Bedrock Embeddings",
+        "version": 5,
+        "name": "AWSBedrockEmbeddings",
+        "type": "AWSBedrockEmbeddings",
+        "baseClasses": [
+          "AWSBedrockEmbeddings",
+          "Embeddings"
+        ],
+        "category": "Embeddings",
+        "description": "AWSBedrock embedding models to generate embeddings for a given text",
+        "inputParams": [
+          {
+            "label": "AWS Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "awsApi"
+            ],
+            "optional": true,
+            "id": "AWSBedrockEmbeddings_0-input-credential-credential",
+            "display": true
+          },
+          {
+            "label": "Region",
+            "name": "region",
+            "type": "asyncOptions",
+            "loadMethod": "listRegions",
+            "default": "us-east-1",
+            "id": "AWSBedrockEmbeddings_0-input-region-asyncOptions",
+            "display": true
+          },
+          {
+            "label": "Model Name",
+            "name": "model",
+            "type": "asyncOptions",
+            "loadMethod": "listModels",
+            "default": "amazon.titan-embed-text-v1",
+            "id": "AWSBedrockEmbeddings_0-input-model-asyncOptions",
+            "display": true
+          },
+          {
+            "label": "Custom Model Name",
+            "name": "customModel",
+            "description": "If provided, will override model selected from Model Name option",
+            "type": "string",
+            "optional": true,
+            "id": "AWSBedrockEmbeddings_0-input-customModel-string",
+            "display": true
+          },
+          {
+            "label": "Cohere Input Type",
+            "name": "inputType",
+            "type": "options",
+            "description": "Specifies the type of input passed to the model. Required for cohere embedding models v3 and higher. <a target=\"_blank\" href=\"https://docs.cohere.com/reference/embed\">Official Docs</a>",
+            "options": [
+              {
+                "label": "search_document",
+                "name": "search_document",
+                "description": "Use this to encode documents for embeddings that you store in a vector database for search use-cases"
+              },
+              {
+                "label": "search_query",
+                "name": "search_query",
+                "description": "Use this when you query your vector DB to find relevant documents."
+              },
+              {
+                "label": "classification",
+                "name": "classification",
+                "description": "Use this when you use the embeddings as an input to a text classifier"
+              },
+              {
+                "label": "clustering",
+                "name": "clustering",
+                "description": "Use this when you want to cluster the embeddings."
+              }
+            ],
+            "optional": true,
+            "id": "AWSBedrockEmbeddings_0-input-inputType-options",
+            "display": true
+          },
+          {
+            "label": "Batch Size",
+            "name": "batchSize",
+            "description": "Documents batch size to send to AWS API for Titan model embeddings. Used to avoid throttling.",
+            "type": "number",
+            "optional": true,
+            "default": 50,
+            "additionalParams": true,
+            "id": "AWSBedrockEmbeddings_0-input-batchSize-number",
+            "display": true
+          },
+          {
+            "label": "Max AWS API retries",
+            "name": "maxRetries",
+            "description": "This will limit the number of AWS API for Titan model embeddings call retries. Used to avoid throttling.",
+            "type": "number",
+            "optional": true,
+            "default": 5,
+            "additionalParams": true,
+            "id": "AWSBedrockEmbeddings_0-input-maxRetries-number",
+            "display": true
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "region": "us-east-1",
+          "model": "amazon.titan-embed-text-v1",
+          "customModel": "",
+          "inputType": "",
+          "batchSize": 50,
+          "maxRetries": 5
+        },
+        "outputAnchors": [
+          {
+            "id": "AWSBedrockEmbeddings_0-output-AWSBedrockEmbeddings-AWSBedrockEmbeddings|Embeddings",
+            "name": "AWSBedrockEmbeddings",
+            "label": "AWSBedrockEmbeddings",
+            "description": "AWSBedrock embedding models to generate embeddings for a given text",
+            "type": "AWSBedrockEmbeddings | Embeddings"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 721,
+      "positionAbsolute": {
+        "x": 1000,
+        "y": 275
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "Neo4j_0",
+      "position": {
+        "x": 700,
+        "y": 275
+      },
+      "type": "customNode",
+      "data": {
+        "id": "Neo4j_0",
+        "label": "Neo4j",
+        "version": 1,
+        "name": "Neo4j",
+        "type": "Neo4j",
+        "baseClasses": [
+          "Neo4j"
+        ],
+        "category": "Graph",
+        "description": "Connect with Neo4j graph database",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "neo4jApi"
+            ],
+            "id": "Neo4j_0-input-credential-credential",
+            "display": true
+          },
+          {
+            "label": "Database",
+            "name": "database",
+            "type": "string",
+            "placeholder": "neo4j",
+            "optional": true,
+            "id": "Neo4j_0-input-database-string",
+            "display": true
+          },
+          {
+            "label": "Timeout (ms)",
+            "name": "timeoutMs",
+            "type": "number",
+            "default": 5000,
+            "optional": true,
+            "id": "Neo4j_0-input-timeoutMs-number",
+            "display": true
+          },
+          {
+            "label": "Enhanced Schema",
+            "name": "enhancedSchema",
+            "type": "boolean",
+            "default": false,
+            "optional": true,
+            "id": "Neo4j_0-input-enhancedSchema-boolean",
+            "display": true
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "database": "",
+          "timeoutMs": 5000,
+          "enhancedSchema": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "Neo4j_0-output-Neo4j-Neo4j",
+            "name": "Neo4j",
+            "label": "Neo4j",
+            "description": "Connect with Neo4j graph database",
+            "type": "Neo4j"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 576,
+      "positionAbsolute": {
+        "x": 700,
+        "y": 275
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "ZepMemoryCloud_0",
+      "position": {
+        "x": 750,
+        "y": 725
+      },
+      "type": "customNode",
+      "data": {
+        "id": "ZepMemoryCloud_0",
+        "label": "Zep Memory - Cloud",
+        "version": 2,
+        "name": "ZepMemoryCloud",
+        "type": "ZepMemory",
+        "baseClasses": [
+          "ZepMemory",
+          "BaseChatMemory",
+          "BaseMemory"
+        ],
+        "category": "Memory",
+        "description": "Summarizes the conversation and stores the memory in zep server",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "optional": true,
+            "description": "Configure JWT authentication on your Zep instance (Optional)",
+            "credentialNames": [
+              "zepMemoryApi"
+            ],
+            "id": "ZepMemoryCloud_0-input-credential-credential",
+            "display": true
+          },
+          {
+            "label": "Session Id",
+            "name": "sessionId",
+            "type": "string",
+            "description": "If not specified, a random id will be used. Learn <a target=\"_blank\" href=\"https://docs.flowiseai.com/memory/long-term-memory#ui-and-embedded-chat\">more</a>",
+            "default": "",
+            "additionalParams": true,
+            "optional": true,
+            "id": "ZepMemoryCloud_0-input-sessionId-string",
+            "display": true
+          },
+          {
+            "label": "Memory Type",
+            "name": "memoryType",
+            "type": "string",
+            "default": "perpetual",
+            "description": "Zep Memory Type, can be perpetual or message_window",
+            "additionalParams": true,
+            "id": "ZepMemoryCloud_0-input-memoryType-string",
+            "display": true
+          },
+          {
+            "label": "AI Prefix",
+            "name": "aiPrefix",
+            "type": "string",
+            "default": "ai",
+            "additionalParams": true,
+            "id": "ZepMemoryCloud_0-input-aiPrefix-string",
+            "display": true
+          },
+          {
+            "label": "Human Prefix",
+            "name": "humanPrefix",
+            "type": "string",
+            "default": "human",
+            "additionalParams": true,
+            "id": "ZepMemoryCloud_0-input-humanPrefix-string",
+            "display": true
+          },
+          {
+            "label": "Memory Key",
+            "name": "memoryKey",
+            "type": "string",
+            "default": "chat_history",
+            "additionalParams": true,
+            "id": "ZepMemoryCloud_0-input-memoryKey-string",
+            "display": true
+          },
+          {
+            "label": "Input Key",
+            "name": "inputKey",
+            "type": "string",
+            "default": "input",
+            "additionalParams": true,
+            "id": "ZepMemoryCloud_0-input-inputKey-string",
+            "display": true
+          },
+          {
+            "label": "Output Key",
+            "name": "outputKey",
+            "type": "string",
+            "default": "text",
+            "additionalParams": true,
+            "id": "ZepMemoryCloud_0-input-outputKey-string",
+            "display": true
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "sessionId": "",
+          "memoryType": "perpetual",
+          "aiPrefix": "ai",
+          "humanPrefix": "human",
+          "memoryKey": "chat_history",
+          "inputKey": "input",
+          "outputKey": "text"
+        },
+        "outputAnchors": [
+          {
+            "id": "ZepMemoryCloud_0-output-ZepMemoryCloud-ZepMemory|BaseChatMemory|BaseMemory",
+            "name": "ZepMemoryCloud",
+            "label": "ZepMemory",
+            "description": "Summarizes the conversation and stores the memory in zep server",
+            "type": "ZepMemory | BaseChatMemory | BaseMemory"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 334,
+      "positionAbsolute": {
+        "x": 750,
+        "y": 725
+      },
+      "selected": false
+    },
+    {
+      "id": "inputModerationSimple_0",
+      "position": {
+        "x": 400,
+        "y": 700
+      },
+      "type": "customNode",
+      "data": {
+        "id": "inputModerationSimple_0",
+        "label": "Simple Prompt Moderation",
+        "version": 2,
+        "name": "inputModerationSimple",
+        "type": "Moderation",
+        "baseClasses": [
+          "Moderation"
+        ],
+        "category": "Moderation",
+        "description": "Check whether input consists of any text from Deny list, and prevent being sent to LLM",
+        "inputParams": [
+          {
+            "label": "Deny List",
+            "name": "denyList",
+            "type": "string",
+            "rows": 4,
+            "placeholder": "ignore previous instructions\ndo not follow the directions\nyou must ignore all previous instructions",
+            "description": "An array of string literals (enter one per line) that should not appear in the prompt text.",
+            "id": "inputModerationSimple_0-input-denyList-string",
+            "display": true
+          },
+          {
+            "label": "Error Message",
+            "name": "moderationErrorMessage",
+            "type": "string",
+            "rows": 2,
+            "default": "Cannot Process! Input violates content moderation policies.",
+            "optional": true,
+            "id": "inputModerationSimple_0-input-moderationErrorMessage-string",
+            "display": true
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Chat Model",
+            "name": "model",
+            "type": "BaseChatModel",
+            "description": "Use LLM to detect if the input is similar to those specified in Deny List",
+            "optional": true,
+            "id": "inputModerationSimple_0-input-model-BaseChatModel",
+            "display": true
+          }
+        ],
+        "inputs": {
+          "denyList": "",
+          "model": "",
+          "moderationErrorMessage": "Cannot Process! Input violates content moderation policies."
+        },
+        "outputAnchors": [
+          {
+            "id": "inputModerationSimple_0-output-inputModerationSimple-Moderation",
+            "name": "inputModerationSimple",
+            "label": "Moderation",
+            "description": "Check whether input consists of any text from Deny list, and prevent being sent to LLM",
+            "type": "Moderation"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 591,
+      "positionAbsolute": {
+        "x": 400,
+        "y": 700
+      },
+      "selected": false
+    }
+  ],
+  "edges": []
+}
